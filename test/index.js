@@ -45,8 +45,25 @@ describe('keyword-sphinx', function() {
 
   it('should be able to limit the number of results', function (done) {
     sphinx.suggestions('houses for sale', { limit: 3 }, function (err, data) {
+      if (err) return done(err);
       expect(data.data.length).to.be(3);
       done();
     });
+  });
+
+  it('should be able to sort by competition', function(done) {
+    sphinx.suggestions('houses for sale',
+      { limit: 3, sort_by: 'global_monthly_search', sort_direction: 'desc' },
+      function (err, data) {
+        if (err) return done(err);
+        var last = Number.MAX_VALUE;
+        expect(data.data.length).to.equal(3);
+        data.data.forEach(function (row) {
+          var value = row.global_monthly_search;
+          expect(parseInt(value, 10)).to.not.be.above(last);
+          last = value;
+        });
+        done();
+      });
   });
 });

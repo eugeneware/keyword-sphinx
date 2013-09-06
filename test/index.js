@@ -5,7 +5,7 @@ var expect = require('expect.js'),
 describe('keyword-sphinx', function() {
   var sphinx;
   beforeEach(function(done) {
-    sphinx = new Sphinx('http://74.52.41.202/sphinx/index.php');
+    sphinx = new Sphinx(process.env.KEYWORD_SPHINX);
     done();
   });
 

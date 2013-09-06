@@ -14,3 +14,13 @@ Sphinx.prototype.get = function(keyword, cb) {
       cb(err, body);
     });
 };
+
+Sphinx.prototype.suggestions = function(keyword, cb) {
+  request({
+    url: this.baseUrl + '/suggestions',
+    qs: { keyword: keyword, suggestions: 'y' },
+    json: true },
+    function (err, res, body) {
+      cb(err, body);
+    });
+};

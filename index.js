@@ -21,6 +21,8 @@ Sphinx.prototype.suggestions = function(keyword, options, cb) {
     cb = options;
     options = {};
   }
+  options = _.pick(options, ['limit', 'sort_by', 'sort_direction', 'cpc_min',
+                  'global_monthly_search_min', 'local_monthly_search_min']);
   options = _.extend(options, { keyword: keyword, suggestions: 'y' });
   request({
     url: this.baseUrl + '/suggestions',

@@ -66,4 +66,33 @@ describe('keyword-sphinx', function() {
         done();
       });
   });
+
+  it('should be able to filter on cpc minimum values', function(done) {
+    sphinx.suggestions('houses for sale',
+      { limit: 3, cpc_min: 1.50 },
+      function (err, data) {
+        if (err) return done(err);
+        expect(data.data.length).to.equal(3);
+        data.data.forEach(function (row) {
+          var value = parseFloat(row.cpc);
+          expect(value).to.not.be.below(1.50);
+        });
+        done();
+      });
+  });
+
+  it('should not allow arbitrary parameters to be passed in', function(done) {
+    var kw = 'houses for sale';
+    var needle = kw.split(' ').map(cleanse);
+    sphinx.suggestions(kw, { keyword: 'dogs for sale', limit: 10 },
+      function (err, data) {
+        if (err) return done(err);
+        data.data.forEach(function (row) {
+          var haystack = row.keyword.split(' ').map(cleanse);
+          var matches = _.intersection(needle, haystack);
+          expect(matches.length).to.be(3);
+        });
+        done();
+      });
+  });
 });

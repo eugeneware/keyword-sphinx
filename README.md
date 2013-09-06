@@ -3,6 +3,8 @@
 A simple API wrapper around [backlink miner's](http://www.backlinkminer.com)
 keyword research API.
 
+[![build status](https://secure.travis-ci.org/eugeneware/keyword-sphinx.png)](http://travis-ci.org/eugeneware/keyword-sphinx)
+
 ## Installation
 
 Install via npm:

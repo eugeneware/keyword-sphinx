@@ -36,6 +36,7 @@
     "underscore": "~1.5.1"
   },
   "dependencies": {
+    "underscore": "~1.5.1",
     "request": "~2.27.0"
   }
 }

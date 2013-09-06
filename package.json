@@ -1,0 +1,40 @@
+{
+  "name": "keyword-sphinx",
+  "version": "0.0.1",
+  "description": "API wrapper for the Keyword Sphynx keyword research API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eugeneware/keyword-sphinx.git"
+  },
+  "keywords": [
+    "keyword",
+    "research",
+    "keyword-research",
+    "google",
+    "keywords",
+    "api",
+    "adwords"
+  ],
+  "author": "Eugene Ware <eugene@noblesamurai.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/eugeneware/keyword-sphinx/issues"
+  },
+  "devDependencies": {
+    "expect.js": "~0.2.0",
+    "grunt-mocha-cli": "~1.1.0",
+    "mocha": "~1.12.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-complexity": "~0.1.3",
+    "grunt-cli": "~0.1.9",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.1"
+  },
+  "dependencies": {
+    "request": "~2.27.0"
+  }
+}

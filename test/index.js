@@ -42,4 +42,11 @@ describe('keyword-sphinx', function() {
       done();
     });
   });
+
+  it('should be able to limit the number of results', function (done) {
+    sphinx.suggestions('houses for sale', { limit: 3 }, function (err, data) {
+      expect(data.data.length).to.be(3);
+      done();
+    });
+  });
 });

@@ -1,4 +1,5 @@
-var request = require('request');
+var request = require('request'),
+    _ = require('underscore');
 module.exports = Sphinx;
 
 function Sphinx(baseUrl) {
@@ -15,10 +16,15 @@ Sphinx.prototype.get = function(keyword, cb) {
     });
 };
 
-Sphinx.prototype.suggestions = function(keyword, cb) {
+Sphinx.prototype.suggestions = function(keyword, options, cb) {
+  if (typeof cb === 'undefined') {
+    cb = options;
+    options = {};
+  }
+  options = _.extend(options, { keyword: keyword, suggestions: 'y' });
   request({
     url: this.baseUrl + '/suggestions',
-    qs: { keyword: keyword, suggestions: 'y' },
+    qs: options,
     json: true },
     function (err, res, body) {
       cb(err, body);

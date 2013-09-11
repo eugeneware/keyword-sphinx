@@ -4,7 +4,7 @@
   "description": "API wrapper for the Keyword Sphynx keyword research API",
   "main": "index.js",
   "scripts": {
-    "test": "KEYWORD_SPHINX=http://74.52.41.202/sphinx/index.php node_modules/.bin/grunt ci"
+    "test": "node_modules/.bin/grunt ci"
   },
   "repository": {
     "type": "git",
